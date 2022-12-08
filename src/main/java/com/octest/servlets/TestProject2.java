@@ -8,38 +8,35 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.octest.beans.Auteur;
 
-public class TestProject extends HttpServlet {
+
+public class TestProject2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public TestProject() {
+    public TestProject2() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Auteur auteur = new Auteur();
+		auteur.setName("Zachary");
+		auteur.setFamillyName("Zacha");
+		auteur.setActif(true);
 		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		/*response.setContentType("text/html");
-		response.setCharacterEncoding("UTF8");
+		request.setAttribute("auteur", auteur);
 		
-		PrintWriter out = response.getWriter();
-		out.println("Bonjour");*/
-		
-		String message = "Au revoir";
-		// send to jsp
-		request.setAttribute("variable", message);
-		request.setAttribute("heure", "jour");
 		
 		 String name = request.getParameter("name");
-		// send to jsp
-	     request.setAttribute("name", name);
-		
-		//lier doc jsp
-		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
-	}
+	       request.setAttribute("name", name);
+	     String[] noms = {"Mathieu", "Robert", "François"};
+	       request.setAttribute("noms", noms);
+	       
+	     //lier doc jsp
+			this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour2.jsp").forward(request, response);}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

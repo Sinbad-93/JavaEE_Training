@@ -9,36 +9,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class TestProject extends HttpServlet {
+public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public TestProject() {
+    public Accueil() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		/*response.setContentType("text/html");
-		response.setCharacterEncoding("UTF8");
-		
-		PrintWriter out = response.getWriter();
-		out.println("Bonjour");*/
-		
-		String message = "Au revoir";
+	
+		String message = "Bienvenue";
 		// send to jsp
 		request.setAttribute("variable", message);
-		request.setAttribute("heure", "jour");
-		
-		 String name = request.getParameter("name");
-		// send to jsp
-	     request.setAttribute("name", name);
-		
+
 		//lier doc jsp
-		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

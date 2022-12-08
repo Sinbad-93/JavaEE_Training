@@ -7,7 +7,13 @@
 <title>Test Project Java EE</title>
 </head>
 <body>
+<%@ include file="menu.jsp" %>
 <p>Bonjour Java EE !</p>
+<p>Bonjour
+<%
+    String name = (String) request.getAttribute("name");
+    out.println(name);
+    %> !</p>
 <%
 String variable = (String) request.getAttribute("variable");
 out.println(variable);
@@ -20,6 +26,8 @@ else {
     out.println("Bonsoir");
 }
 %>
+
+
 
 <p>
     <%
