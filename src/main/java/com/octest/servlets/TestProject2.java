@@ -35,6 +35,9 @@ public class TestProject2 extends HttpServlet {
 	     String[] noms = {"Mathieu", "Robert", "François"};
 	       request.setAttribute("noms", noms);
 	       
+	       String[] titres = { "Nouvelle Calédonie","Polynésie","Tahiti"};
+	       request.setAttribute("titres", titres);
+	       
 	     //lier doc jsp
 			this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour2.jsp").forward(request, response);}
 
