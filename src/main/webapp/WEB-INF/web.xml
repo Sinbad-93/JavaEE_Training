@@ -55,4 +55,30 @@
     <servlet-name>FormTest</servlet-name>
     <url-pattern>/FormTest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UploadFile</display-name>
+    <servlet-name>UploadFile</servlet-name>
+    <servlet-class>com.octest.servlets.UploadFile</servlet-class>
+    <multipart-config>
+      <location>/Users/Administrateur/javaUpload/temporaire</location>
+      <max-file-size>10485760</max-file-size>
+      <max-request-size>52428800</max-request-size>
+      <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadFile</servlet-name>
+    <url-pattern>/UploadFile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookieTest</display-name>
+    <servlet-name>CookieTest</servlet-name>
+    <servlet-class>com.octest.servlets.CookieTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieTest</servlet-name>
+    <url-pattern>/CookieTest</url-pattern>
+  </servlet-mapping>
 </web-app>

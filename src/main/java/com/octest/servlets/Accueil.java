@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -30,8 +32,19 @@ public class Accueil extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//test du session storage
+				String nom = request.getParameter("nom");
+		        String prenom = request.getParameter("prenom");
+		        
+		        HttpSession session = request.getSession();
+
+		        session.setAttribute("nom", nom);
+		        session.setAttribute("prenom", prenom);
+
+
+				//lier doc jsp
+				this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		
-		//doGet(request, response);
 	}
 
 }
